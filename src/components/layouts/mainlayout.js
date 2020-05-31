@@ -1,11 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import logo from "../assets/logo.png"
 
 const MainLayout = (props) => {
   return (
     <div className="blog-container">
       <div className="navbar">
-        <div className="brand"><Link to="/">IMPARTNEWSPOINT</Link></div>
+        <div className="brand"><Link to="/"><img src={logo} alt=""/></Link></div>
 
         <div className="navRight">
           <div className="navLinks">
