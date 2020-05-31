@@ -39,7 +39,7 @@ const Home = (props) => {
   return (
     <div>
       <div className="banner">
-        <h3>Welcome to TheAdefemiBlog</h3>
+        <h3>Welcome to IMPARTNEWSPOINT</h3>
         <p>
           In here, you will get this latest news to every genre you can ever
           thing of.
@@ -69,26 +69,29 @@ const Home = (props) => {
             {blogList.results.map((item, id) => (
               <BlogCard key={id} data={item} />
             ))}
+              {!fetching && (
+                  <div className="pagination">
+                      <br/>
+                      <ReactPaginate
+                          pageCount={Math.ceil(blogList.count / 20)}
+                          pageRangeDisplayed={10}
+                          onPageChange={(e) => setCurrentPage(e.selected + 1)}
+                          marginPagesDisplayed={1}
+                          forcePage={currentPage - 1}
+                      />
+                  </div>
+              )}
           </div>
         )}
 
-        <div className="blogExtras">
+        <div className="blogExtras blogExtras-main">
           <h4>Top Blogs</h4>
           <BlogCommon />
         </div>
       </div>
 
-      {!fetching && (
-        <div className="pagination">
-          <ReactPaginate
-            pageCount={Math.ceil(blogList.count / 1)}
-            pageRangeDisplayed={10}
-            onPageChange={(e) => setCurrentPage(e.selected + 1)}
-            marginPagesDisplayed={1}
-            forcePage={currentPage - 1}
-          />
-        </div>
-      )}
+
+      <br/><br/>
     </div>
   );
 };

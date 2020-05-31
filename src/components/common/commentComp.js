@@ -22,7 +22,6 @@ const CommentComp = (props) => {
     axios.post(BLOG_COMMENT_URL, commentData).then(
       (res) => {
         setLoading(false);
-        alert("Comment submitted.");
         setCommentData({ blog_id: props.id });
         dispatch({ type: CommentTriggerAction, payload: true });
       },

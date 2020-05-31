@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
+  background-color: #f9f9f9;
 }
 
 .textCapitalized {
@@ -20,34 +21,88 @@ body {
   justify-content: space-between;
   padding: 0 3em;
 
+  @media screen and (max-width: 600px) {
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+  }
+
   .brand {
-    font-size: 20px;
-    color: white;
+    font-size: 18px;
+
     font-weight: bold;
+    a{
+      color: white;
+      text-decoration: none;
+    }
   }
 
   .navRight {
     display: flex;
     align-items: center;
 
+
+
     .navLinks {
       margin: 0 20px;
+
+      &:last-child{
+        margin-right: 0;
+      }
       a {
         color: white;
         font-size: 14px;
-        font-weight: 600px;
+        font-weight: 600;
         text-decoration: none;
+      }
+
+      @media screen and (max-width: 600px) {
+        margin-top: 10px;
+        margin-left: 0;
+        a{
+          font-size: 12px;
+        }
       }
     }
   }
 }
 
+.children-con{
+  min-height: 80vh;
+}
+
+footer{
+  height: 100px;
+  background-color: #e9f1f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.blogExtras-main{
+  @media screen and (max-width: 600px) {
+    padding: 0 20px;
+  }
+}
+
 .blogListContainer {
   max-width: 1200px;
-  margin: 30px auto;
+  padding: 30px 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 5fr 2fr;
   grid-gap: 2em;
+  box-sizing: border-box;
+
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 
   .blogCard,
   .blogCardExtra {
@@ -58,14 +113,17 @@ body {
     margin-bottom: 30px;
     display: flex;
     overflow: hidden;
+    background-color: white;
 
     .blogImage {
       flex: 1;
-      max-width: 40%;
+      width: 40%;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-color: whitesmoke;
+      min-width: 40%;
+      max-width: 40%;
     }
 
     h4 {
@@ -83,6 +141,12 @@ body {
         font-weight: 600;
         color: $tertiary_color;
       }
+
+      p{
+        line-height: 25px;
+        font-size: 15px;
+        color: darken(white, 70%);
+      }
       button {
         padding: 10px 30px;
         border: none;
@@ -97,6 +161,39 @@ body {
         font-size: 12px;
         color: darken($color: white, $amount: 40%);
         font-weight: bold;
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px)  {
+    .blogCard{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .blogContent{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media screen and (max-width: 400px) {
+          p {
+            font-size: 13px;
+          }
+        }
+        @media screen and (max-width: 350px) {
+          p{
+            font-size: 13px;
+          }
+          .footer {
+            font-size: 10px;
+          }
+        }
+      }
+
+      .blogImage{
+        display: none;
       }
     }
   }
@@ -125,33 +222,68 @@ body {
   margin: 30px auto;
   margin-bottom: 30px;
 
+  @media screen and (max-width: 600px) {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   ul {
     margin: 0;
     padding: 0;
     display: inline-flex;
     border-radius: 2px;
     border: 1px solid darken(white, 5%);
+
+
+
     li {
       list-style: none;
-      padding: 10px 25px;
-      border-right: 1px solid darken(white, 5%);
-      cursor: pointer;
+
+
+      a{
+        padding: 10px 25px;
+        border-right: 1px solid darken(white, 5%);
+        cursor: pointer;
+        box-sizing: border-box;
+        background-color: white;
+
+        @media screen and (max-width: 600px) {
+          padding: 7px 20px;
+          font-size: 14px;
+        }
+
+        @media screen and (max-width: 400px) {
+          padding: 5px 15px;
+          font-size: 13px;
+        }
+      }
+
+
       &:last-child {
-        border-right: none;
+        a{
+          border-right: none;
+        }
       }
 
       &:hover {
-        background-color: darken(white, 5%);
+        a{
+          background-color: darken(white, 5%);
+        }
       }
 
       &.disabled {
-        cursor: not-allowed;
-        color: darken(white, 50%);
+        a{
+          cursor: not-allowed;
+          color: darken(white, 50%)
+        }
       }
 
       &.selected {
-        color: white;
-        background-color: $primary_color;
+        a{
+          color: white;
+          background-color: $primary_color;
+        }
       }
     }
   }

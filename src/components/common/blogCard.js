@@ -17,10 +17,10 @@ const BlogCard = (props) => {
       />
       <div className="blogContent">
         <div>
-          <div className="blogTitle">{props.data.title}</div>
+          <div className="blogTitle">{props.data.title.substring(0, 70)}{props.data.title.length > 70 && "..."}</div>
           <p>
-            {removeTag(props.data.content).toString().substring(0, 30)}
-            {removeTag(props.data.content).toString().length > 30 && "..."}
+            {removeTag(props.data.content).toString().substring(0, 180)}
+            {removeTag(props.data.content).toString().length > 180 && "..."}
           </p>
           <Link to={`/${props.data.slug}`}>
             <button>Continue Reading</button>

@@ -11,7 +11,7 @@ const BlogCardExtra = (props) => {
       />
       <div className="blogContent">
         <div>
-          <div className="blogTitle">{props.data.title}</div>
+          <div className="blogTitle">{props.data.title.substring(0, 20)}{props.data.title.length > 20 && "..."}</div>
           <Link to={`/${props.data.slug}`}>
             <button>Read More</button>
           </Link>

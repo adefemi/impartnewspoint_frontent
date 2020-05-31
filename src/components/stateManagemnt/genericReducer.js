@@ -5,7 +5,7 @@ export const textState = {
 };
 
 export const commentTriggerState = {
-  commentTrigger: true,
+  commentTrigger: false,
 };
 
 export const textReducer = (state, action) => {

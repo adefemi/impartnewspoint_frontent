@@ -13,6 +13,7 @@ const SingleBlog = (props) => {
   const [activeBlog, setActiveBlog] = useState(null);
 
   useEffect(() => {
+      setFetching(true)
     axios.get(BLOG_URL + props.match.params.slug).then(
       (res) => {
         setActiveBlog(res.data);
@@ -22,7 +23,7 @@ const SingleBlog = (props) => {
         console.log(err);
       }
     );
-  }, []);
+  }, [window.location.href]);
 
   return (
     <div className="singleBlog">
@@ -57,7 +58,7 @@ const SingleBlog = (props) => {
               <Skeleton height={20} />
             </div>
           </div>
-          <div className="blogExtras"></div>
+          <div className="blogExtras"/>
         </div>
       ) : (
         <div className="blogListContainer">

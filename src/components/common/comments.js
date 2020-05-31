@@ -15,8 +15,18 @@ const Comments = (props) => {
   } = useContext(store);
 
   useEffect(() => {
+    getComments()
+  }, [])
+
+  useEffect(() => {
     if (commentTrigger) {
-      axios.get(BLOG_COMMENT_URL + `?blog_id=${props.id}`).then(
+     getComments()
+      dispatch({ type: CommentTriggerAction, payload: false });
+    }
+  }, [commentTrigger]);
+
+  const getComments = () => {
+    axios.get(BLOG_COMMENT_URL + `?blog_id=${props.id}`).then(
         (res) => {
           setCommentList(res.data);
           setFetching(false);
@@ -24,10 +34,8 @@ const Comments = (props) => {
         (err) => {
           console.log(err.response.data);
         }
-      );
-      dispatch({ type: CommentTriggerAction, payload: false });
-    }
-  }, [commentTrigger]);
+    );
+  }
 
   return (
     <div className="comentList">
