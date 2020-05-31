@@ -21,13 +21,22 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  width: 100vw;
 
   h3 {
     margin: 0;
     font-size: 30px;
     font-weight: 500;
     color: $primary-color;
+  }
+
+  .share-button{
+    button{
+      outline: navajowhite;
+      margin-right: 10px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
   }
 
   .author {

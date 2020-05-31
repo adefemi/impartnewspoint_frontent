@@ -7,6 +7,18 @@ import { BLOG_URL } from "../../utils/urls";
 import Skeleton from "react-loading-skeleton";
 import moment from "moment";
 import BlogCommon from "../../common/topBlogs";
+import {
+    FacebookShareButton,
+    FacebookIcon,
+    TwitterShareButton,
+    TwitterIcon,
+    WhatsappShareButton,
+    WhatsappIcon,
+    LineShareButton,
+    LinkedinIcon,
+    TelegramShareButton,
+    TelegramIcon
+} from "react-share";
 
 const SingleBlog = (props) => {
   const [fetching, setFetching] = useState(true);
@@ -73,7 +85,13 @@ const SingleBlog = (props) => {
               {moment(new Date(activeBlog.created_at)).format("YYYY-MM-DD")}
             </div>
             <p className="blog-content-main" dangerouslySetInnerHTML={{ __html: activeBlog.content }} />
-
+             <div className="share-button">
+                 <FacebookShareButton url={window.location.href} ><FacebookIcon size={32} round={true}/></FacebookShareButton>
+                 <TwitterShareButton url={window.location.href} ><TwitterIcon size={32} round={true}/></TwitterShareButton>
+                 <LineShareButton url={window.location.href} ><LinkedinIcon size={32} round={true}/></LineShareButton>
+                 <WhatsappShareButton url={window.location.href} ><WhatsappIcon size={32} round={true}/></WhatsappShareButton>
+                 <TelegramShareButton url={window.location.href} ><TelegramIcon size={32} round={true}/></TelegramShareButton>
+             </div>
             <CommentComp id={activeBlog.id} />
             <Comments id={activeBlog.id} />
           </div>
