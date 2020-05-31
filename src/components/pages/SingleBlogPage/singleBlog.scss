@@ -3,6 +3,7 @@
 .singleBlog {
   background-color: white;
   padding: 30px 20px;
+  box-sizing: border-box;
   .cover-main {
     width: 100%;
     background-color: darken(white, 5%);
@@ -20,6 +21,7 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+  width: 100vw;
 
   h3 {
     margin: 0;
@@ -34,8 +36,23 @@
     color: darken($color: white, $amount: 50%);
   }
 
-  p {
-    line-height: 25px;
+  .blogList{
+    @media screen and (max-width: 600px) {
+      width: calc(100vw - 40px);
+    }
+  }
+
+  .blog-content-main{
+    img{
+      max-width: 100% !important;
+    }
+    pre{
+      overflow: auto;
+    }
+    &>*{
+      overflow: auto;
+      max-width: 100% !important;
+    }
   }
 
   .comment-comp {

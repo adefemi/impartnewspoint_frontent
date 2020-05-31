@@ -72,7 +72,7 @@ const SingleBlog = (props) => {
               , On{" "}
               {moment(new Date(activeBlog.created_at)).format("YYYY-MM-DD")}
             </div>
-            <p dangerouslySetInnerHTML={{ __html: activeBlog.content }} />
+            <p className="blog-content-main" dangerouslySetInnerHTML={{ __html: activeBlog.content }} />
 
             <CommentComp id={activeBlog.id} />
             <Comments id={activeBlog.id} />
