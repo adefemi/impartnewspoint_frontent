@@ -1,0 +1,88 @@
+@import "../../utils/theme";
+
+.singleBlog {
+  .cover-main {
+    width: 100%;
+    background-color: darken(white, 5%);
+    height: 300px;
+    max-width: 1200px;
+    margin: 30px auto 0;
+    border-radius: 4px;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 500;
+    color: $primary-color;
+  }
+
+  .author {
+    font-size: 12px;
+    font-weight: 600;
+    color: darken($color: white, $amount: 50%);
+  }
+
+  p {
+    line-height: 25px;
+  }
+
+  .comment-comp {
+    margin-top: 30px;
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    form {
+      margin-top: 20px;
+      input,
+      textarea {
+        display: block;
+        min-height: 40px;
+        padding: 10px 20px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        border: 1px solid darken(white, 10%);
+      }
+
+      button {
+        width: 150px;
+        height: 40px;
+        font-weight: 600;
+        border: none;
+        background-color: $tertiary-color;
+        color: white;
+      }
+    }
+  }
+}
+
+.comentList {
+  margin-top: 30px;
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .comment-card {
+    border: 1px solid darken(white, 5%);
+    margin-bottom: 20px;
+    padding: 20px;
+    p {
+      margin: 0;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: darken(white, 50%);
+    }
+  }
+}
