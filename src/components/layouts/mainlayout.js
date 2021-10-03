@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 import logo from "../assets/logo.png"
 
 const MainLayout = (props) => {
+  const currentYear = new Date().getFullYear()
+  
   return (
     <div className="blog-container">
       <div className="navbar">
@@ -25,7 +27,7 @@ const MainLayout = (props) => {
         {props.children}
       </div>
       <footer>
-        Impartnewspoint 2020 &copy; All Rights Reserved
+        Impartnewspoint {currentYear} &copy; All Rights Reserved
       </footer>
     </div>
   );
